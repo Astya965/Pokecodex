@@ -15,14 +15,14 @@ const PokemonDescription = ({ pokemon }: TPokemonDescriptionProps) => {
       {stats && (
         <div className="stats">
           {Array.from(stats.entries()).map(([name, value]) => (
-            <StatInfo name={name} value={value} />
+            <StatInfo key={name} name={name} value={value} />
           ))}
         </div>
       )}
       {types && (
         <div>
           {types.map((type) => (
-            <Tag className="tag">{type}</Tag>
+            <Tag key={type} className="tag">{type}</Tag>
           ))}
         </div>
       )}
