@@ -12,6 +12,7 @@ module.exports = {
     port: 3020,
     open: false,
     hot: false,
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -19,6 +20,7 @@ module.exports = {
     }),
     new ESLintPlugin()
   ],
+  devtool: "source-map",
   module: {
     rules: [
       {
