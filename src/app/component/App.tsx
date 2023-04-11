@@ -1,12 +1,16 @@
-import React from "react";
+import React from 'react';
 import Checkbox from 'antd/lib/checkbox';
-import "./App.scss";
+import './App.scss';
 
-export const App = () => {
+const App = () => {
+  const text = 'Welcome, friend!';
+
   return (
     <div className="test">
-      <h1>Welcome, friend!</h1>
-      <Checkbox onChange={() => alert("hi!")}>I'm Checkbox</Checkbox>
+      <h1>{text}</h1>
+      <Checkbox>I`m Checkbox</Checkbox>
     </div>
   );
 };
+
+export default App;
