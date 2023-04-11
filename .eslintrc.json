@@ -9,6 +9,7 @@
     "airbnb/hooks",
     "plugin:import/typescript"
   ],
+  "parser": "@typescript-eslint/parser",
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -36,6 +37,10 @@
         "ts": "never",
         "tsx": "never"
       }
+    ],
+    "react/jsx-wrap-multilines": [
+      2,
+      { "arrow": true, "return": true, "declaration": true }
     ]
   }
 }
