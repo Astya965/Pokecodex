@@ -1,0 +1,21 @@
+.errorPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 400px;
+    text-align: center;
+}
+
+.errorNumber {
+    font-size: 72px;
+    margin-bottom: 20px;
+}
+
+.errorInfo {
+    font-size: 32px;
+}
+
+.linkToHome {
+    font-size: 18px;
+    padding: 25px;
+}
