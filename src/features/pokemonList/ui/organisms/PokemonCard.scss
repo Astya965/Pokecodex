@@ -1,0 +1,8 @@
+.card {
+    width: 320px;
+    margin-right: 35px;
+    
+    &:last-child {
+        margin-right: 0;
+    }
+}
