@@ -1,0 +1,64 @@
+.goBackArrow {
+  margin-right: 10px;
+}
+
+.pokemonImageWrapper {
+    margin-right: 35px;
+}
+
+.typesInfo {
+    margin-bottom: 50px;
+}
+
+.statsInfo,
+.evolutionInfo,
+.abilitiesInfo,
+.additionalInfo {
+  margin-bottom: 40px;
+}
+
+.statsGroup,
+.additionalInfoGroup {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.evolutionGroup {
+  display: flex;
+  flex-wrap: wrap;
+
+  font-size: 18px;
+}
+
+.evolutionForm {
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.evolutionArrow {
+  margin-left: 10px;
+}
+
+.abilitiesGroup {
+  display: flex;
+}
+
+.abilityItem {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-right: 15px;
+
+  font-size: 18px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.additionalInfoGroup {
+    max-width: 600px;
+}
