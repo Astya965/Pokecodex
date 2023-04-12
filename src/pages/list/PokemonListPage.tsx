@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Input, Pagination, Select } from 'antd';
-import { gql, useLazyQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 
 import PokemonList from 'src/features/pokemonList';
 import { TPokemon } from 'src/shared/types/formatedPokemon';
 import { TRawPokemonData } from 'src/shared/types/rawPokemonData';
 import { TYPES } from 'src/shared/constants/pokemonType';
+import { getAllPokemons } from 'src/shared/api/queries';
 import LoadingPage from 'src/shared/ui/organisms/LoadingPage';
 import ErrorPage from 'src/shared/ui/organisms/ErrorPage';
 
@@ -17,27 +18,7 @@ import {
 import './PokemonListPage.scss';
 
 const PokemonListPage = () => {
-  const GET_POKEMONS = gql`
-    query {
-      pokemons: pokemon_v2_pokemon {
-        id
-        name
-        types: pokemon_v2_pokemontypes {
-          type: pokemon_v2_type {
-            name
-          }
-        }
-        stats: pokemon_v2_pokemonstats {
-          base_stat
-          statName: pokemon_v2_stat {
-            name
-          }
-        }
-      }
-    }
-  `;
-
-  const [queryGetPokemons, { data, loading, error }] = useLazyQuery(GET_POKEMONS);
+  const [queryGetPokemons, { data, loading, error }] = useLazyQuery(getAllPokemons());
   const [pokemonList, setPokemonList] = useState<TRawPokemonData[]>([]);
   const [pokemonListFormPage, setPokemonListForPage] = useState<TPokemon[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
@@ -52,11 +33,13 @@ const PokemonListPage = () => {
   }, [data]);
 
   useEffect(() => {
-    setPokemonListForPage(
-      getPokemonsInfo(
-        pokemonList.slice((pageNumber - 1) * pageSize, pageNumber * pageSize),
-      ),
-    );
+    if (pokemonList && pokemonList.length > 0) {
+      setPokemonListForPage(
+        getPokemonsInfo(
+          pokemonList.slice((pageNumber - 1) * pageSize, pageNumber * pageSize),
+        ),
+      );
+    }
   }, [pokemonList, pageSize, pageNumber]);
 
   if (loading) {
