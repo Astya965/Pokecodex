@@ -1,15 +1,29 @@
-import { gql, useQuery } from '@apollo/client';
-import { Spin } from 'antd';
+import { ReloadOutlined } from '@ant-design/icons';
+import { gql, useLazyQuery } from '@apollo/client';
+import { Button, Input, Pagination, Select, Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import PokemonList from '../../features/pokemonList';
 import { TPokemon } from '../../features/pokemonList/types';
 import './PokemonListPage.scss';
-import { getPokemonInfo } from './utils/pokemon';
+import {
+  filterPokemonsByName,
+  getPokemonsInfo,
+  RawPokemonsList,
+  RawPokemonData,
+  filterPokemonsByTags,
+} from './utils/pokemon';
+
+type TQuaryResponse = {
+  data?: RawPokemonsList | null;
+  loading: boolean;
+  error?: any;
+  refetch?: any;
+};
 
 const PokemonListPage = () => {
   const GET_POKEMONS = gql`
     query {
-      pokemons: pokemon_v2_pokemon(limit: 10, offset: 0) {
+      pokemons: pokemon_v2_pokemon {
         id
         name
         types: pokemon_v2_pokemontypes {
@@ -27,24 +41,114 @@ const PokemonListPage = () => {
     }
   `;
 
-  const { data, loading, error } = useQuery(GET_POKEMONS);
-  const [pokemonList, setPokemonList] = useState<TPokemon[]>([]);
+  const [queryGetPokemons, { data, loading, error }] =
+    useLazyQuery(GET_POKEMONS);
+  const [pokemonList, setPokemonList] = useState<RawPokemonData[]>([]);
+  const [pokemonListFormPage, setPokemonListForPage] = useState<TPokemon[]>([]);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [pageNumber, setPageNumber] = useState<number>(1);
+
+  const TYPES = [
+    { value: 'grass', label: 'grass' },
+    { value: 'poison', label: 'poison' },
+    { value: 'fire', label: 'fire' },
+    { value: 'flying', label: 'flying' },
+    { value: 'water', label: 'water' },
+    { value: 'bug', label: 'bug' },
+    { value: 'normal', label: 'normal' },
+    { value: 'electric', label: 'electric' },
+    { value: 'ground', label: 'ground' },
+    { value: 'fairy', label: 'fairy' },
+    { value: 'fighting', label: 'fighting' },
+    { value: 'psychic', label: 'psychic' },
+    { value: 'rock', label: 'rock' },
+    { value: 'steel', label: 'steel' },
+    { value: 'ice', label: 'ice' },
+    { value: 'ghost', label: 'ghost' },
+    { value: 'dragon', label: 'dragon' },
+    { value: 'dark', label: 'dark' },
+  ];
+
+  useEffect(() => {
+    queryGetPokemons();
+  }, []);
+
+  useEffect(() => {
+    setPokemonList(data?.pokemons);
+  }, [data]);
 
   useEffect(() => {
     if (data && data.pokemons) {
-      setPokemonList(getPokemonInfo(data.pokemons));
+      setPokemonListForPage(
+        getPokemonsInfo(
+          pokemonList.slice((pageNumber - 1) * pageSize, pageNumber * pageSize),
+        ),
+      );
     }
-  }, [data]);
+  }, [pokemonList, pageSize, pageNumber]);
 
   if (loading) {
     return (
-      <div className="spinWrapper">
+      <div className="infoWrapper">
         <Spin className="spinner" tip="Loading" size="large" />
       </div>
     );
   }
 
-  return <PokemonList pokemonList={pokemonList} />;
+  if (error) {
+    return (
+      <div className="infoWrapper">
+        <h3 className="errorInfo">There's a problem loading pokemon list</h3>
+        <Button
+          onClick={() => {
+            queryGetPokemons();
+          }}
+          className="reloadButton"
+          icon={<ReloadOutlined />}
+        >
+          Reload list
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="filters">
+        <Input
+          className="nameFilter"
+          placeholder="Filter by name"
+          onChange={(evt) => {
+            setPokemonList(
+              filterPokemonsByName(data?.pokemons, evt?.target?.value),
+            );
+            setPageNumber(1);
+          }}
+        />
+        <Select
+          className="tagFilter"
+          mode="tags"
+          placeholder="Filter by type"
+          onChange={(tags) => {
+            setPokemonList(filterPokemonsByTags(data?.pokemons, tags));
+            setPageNumber(1);
+          }}
+          options={TYPES}
+        />
+      </div>
+      <PokemonList pokemonList={pokemonListFormPage} />
+      <Pagination
+        className="pagination"
+        current={pageNumber}
+        pageSize={pageSize}
+        onChange={(newPage) => setPageNumber(newPage)}
+        onShowSizeChange={(_, newSize) => setPageSize(newSize)}
+        total={pokemonList?.length}
+        showSizeChanger
+        hideOnSinglePage
+      />
+    </>
+  );
 };
 
 export default PokemonListPage;
