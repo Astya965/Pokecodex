@@ -1,24 +1,6 @@
-import { TPokemon } from '../../../features/pokemonList/types';
-
-export type RawPokemonData = {
-  id: number;
-  name: string;
-  types: RawPokemonType[];
-  stats: RawPokemonStat[];
-};
-
-type RawPokemonType = {
-  type: {
-    name: string;
-  };
-};
-
-type RawPokemonStat = {
-  base_stat: number;
-  statName: {
-    name: string;
-  };
-};
+import { TPokemon } from '../../../shared/types/formatedPokemon';
+import { RawPokemonData } from '../../../shared/types/rawPokemonData';
+import { formatName } from '../../../shared/utils/format';
 
 export const getPokemonsInfo = (
   pokemons: RawPokemonData[] = [],
@@ -26,7 +8,7 @@ export const getPokemonsInfo = (
   return pokemons.map((pokemon) => {
     return {
       id: pokemon.id,
-      name: pokemon.name,
+      name: formatName(pokemon.name),
       types: pokemon.types.map((item) => item.type.name),
       stats: pokemon.stats.reduce((acc, item) => {
         acc.set(item.statName.name, item.base_stat);
