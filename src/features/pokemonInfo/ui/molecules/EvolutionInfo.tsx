@@ -12,8 +12,8 @@ type TEvolutionInfoProps = {
   id: number;
 };
 
-const EvolutionInfo = ({ evolution, id }: TEvolutionInfoProps) => evolution
-  && evolution.length > 0 && (
+const EvolutionInfo = ({ evolution, id }: TEvolutionInfoProps) => (evolution
+  && evolution.length > 0 ? (
     <div className="evolutionInfo">
       <Title level={3}>Evolution chain: </Title>
       <div className="evolutionGroup">
@@ -40,6 +40,6 @@ const EvolutionInfo = ({ evolution, id }: TEvolutionInfoProps) => evolution
         ))}
       </div>
     </div>
-);
+  ) : null);
 
 export default EvolutionInfo;
