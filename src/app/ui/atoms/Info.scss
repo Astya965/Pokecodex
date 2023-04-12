@@ -1,8 +1,8 @@
-@use 'src/shared/styles/varables.scss';
+@import 'src/shared/styles/varables.scss';
 
 .info {
   padding: 35px;
 
   text-align: center;
-  font-size: (--font-size-big);
+  font-size: var(--font-size-big);
 }

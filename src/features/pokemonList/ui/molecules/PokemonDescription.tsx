@@ -25,7 +25,7 @@ const PokemonDescription = ({ pokemon }: TPokemonDescriptionProps) => {
       {types && (
         <div>
           {types.map((type) => (
-            <TypeTag type={type} key={type} className="tag" />
+            <TypeTag type={type} key={type} />
           ))}
         </div>
       )}

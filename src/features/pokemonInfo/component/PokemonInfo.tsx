@@ -27,11 +27,11 @@ const PokemonInfo = ({ pokemon }: TPokemonInfoPros) => {
       </Link>
       <div>
         <PokemonImage id={id} name={name} className="pokemonImageWrapper" />
-        <Title level={2}>{name}</Title>
+        <Title className='pokemonName' level={2}>{name}</Title>
         {types && (
           <div className="typesInfo">
             {types.map((type) => (
-              <TypeTag type={type} key={type} className="tag" />
+              <TypeTag type={type} key={type} />
             ))}
           </div>
         )}

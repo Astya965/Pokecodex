@@ -1,6 +1,6 @@
-@use 'src/shared/styles/varables.scss';
+@import 'src/shared/styles/varables.scss';
 
 .inner {
   padding: 25px 40px;
-  background-color: var(--font-size-big);
+  background-color: var(--color-background);
 }
