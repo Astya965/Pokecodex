@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
-import { TPokemon } from '../../types';
+import { TPokemon } from '../../../../shared/types/formatedPokemon';
 import PokemonDescription from '../molecules/PokemonDescription';
 import './PokemonCard.scss';
 import { Link } from 'react-router-dom';

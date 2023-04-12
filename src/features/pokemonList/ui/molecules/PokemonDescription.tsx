@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 import React from 'react';
-import { TPokemon } from '../../types';
+import { TPokemon } from '../../../../shared/types/formatedPokemon';
 import StatInfo from '../atom/StatInfo';
 import './PokemonDescription.scss';
 

@@ -3,12 +3,12 @@ import { gql, useLazyQuery } from '@apollo/client';
 import { Button, Input, Pagination, Select, Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import PokemonList from '../../features/pokemonList';
-import { TPokemon } from '../../features/pokemonList/types';
+import { TPokemon } from '../../shared/types/formatedPokemon';
+import { RawPokemonData } from '../../shared/types/rawPokemonData';
 import './PokemonListPage.scss';
 import {
   filterPokemonsByName,
   getPokemonsInfo,
-  RawPokemonData,
   filterPokemonsByTags,
 } from './utils/pokemon';
 
