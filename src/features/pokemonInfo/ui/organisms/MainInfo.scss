@@ -1,0 +1,20 @@
+.pokemonImageWrapper {
+  margin-right: 35px;
+}
+
+.pokemonName {
+  word-break: keep-all;
+}
+
+.typesInfo {
+  margin-bottom: 50px;
+}
+
+.statsInfo {
+  margin-bottom: 40px;
+}
+
+.statsGroup {
+  display: flex;
+  flex-wrap: wrap;
+}

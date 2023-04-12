@@ -1,0 +1,24 @@
+@import 'src/shared/styles/varables.scss';
+
+.evolutionInfo {
+  margin-bottom: 40px;
+}
+
+.evolutionGroup {
+  display: flex;
+  flex-wrap: wrap;
+
+  font-size: var(--font-size-normal);
+}
+
+.evolutionForm {
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.evolutionArrow {
+  margin-left: 10px;
+}

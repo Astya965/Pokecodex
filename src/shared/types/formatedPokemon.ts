@@ -12,26 +12,28 @@ export type TPokemonFullInfo = {
   stats: Map<string, number>;
   evolution: TEvolutionForm[];
   abilities: TAbility[];
-  additionalInfo: {
-    height: number;
-    weight: number;
-    color: string;
-    habitat: string;
-    shape: string;
-    baseHappiness: number;
-    captureRate: number;
-    isBaby: boolean;
-    isLegendary: boolean;
-    isMythical: boolean;
-  };
+  additionalInfo: TAdditionalInfo;
 };
 
-type TEvolutionForm = {
+export type TEvolutionForm = {
   name: string;
   id: number;
 };
 
-type TAbility = {
+export type TAbility = {
   name: string;
   text: string;
+};
+
+export type TAdditionalInfo = {
+  height: number;
+  weight: number;
+  color: string;
+  habitat: string;
+  shape: string;
+  baseHappiness: number;
+  captureRate: number;
+  isBaby: boolean;
+  isLegendary: boolean;
+  isMythical: boolean;
 };

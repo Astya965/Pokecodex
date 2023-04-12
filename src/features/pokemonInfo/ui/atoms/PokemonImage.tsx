@@ -14,6 +14,10 @@ const PokemonImage = ({ name, id, className }: TPokemonImage) => (
     width={320}
     alt={`Official artwork with ${name}`}
     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+    onError={({ currentTarget }) => {
+      currentTarget.onerror = null;
+      currentTarget.src = 'https://placehold.co/320x320';
+    }}
   />
 );
 
