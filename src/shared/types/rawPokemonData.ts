@@ -1,31 +1,33 @@
-export type RawPokemonData = {
+export type TRawPokemonData = {
   id: number;
   name: string;
-  types: RawPokemonType[];
-  stats: RawPokemonStat[];
+  types: TRawPokemonType[];
+  stats: TRawPokemonStat[];
 };
 
-export type RawPokemonFullData = {
+export type TRawPokemonFullData = {
   id: number;
   name: string;
-  types: RawPokemonType[];
-  stats: RawPokemonStat[];
+  types:TRawPokemonType[];
+  stats: TRawPokemonStat[];
   weight: number;
   height: number;
-  abilities: RawAbility[];
-  specy: RawSpecy;
+  abilities: TRawAbility[];
+  specy: TRawSpecy;
 };
 
-type RawAbility = {
+type TRawAbility = {
   ability: {
     name: string;
-    text: {
-      effect: string;
-    };
+    text: TAbilityText[];
   };
 };
 
-type RawSpecy = {
+type TAbilityText = {
+  effect: string;
+}
+
+type TRawSpecy = {
   base_happiness: number;
   capture_rate: number;
   is_baby: boolean;
@@ -41,22 +43,22 @@ type RawSpecy = {
     name: string;
   };
   evolution: {
-    form: RawEvolutionForm[];
+    form: TRawEvolutionForm[];
   };
 };
 
-type RawEvolutionForm = {
+type TRawEvolutionForm = {
   name: string;
-  evolves_from_species_id: number;
+  id: number;
 };
 
-type RawPokemonType = {
+type TRawPokemonType = {
   type: {
     name: string;
   };
 };
 
-type RawPokemonStat = {
+type TRawPokemonStat = {
   base_stat: number;
   statName: {
     name: string;

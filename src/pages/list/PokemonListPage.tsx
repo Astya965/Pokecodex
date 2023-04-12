@@ -4,7 +4,7 @@ import { Button, Input, Pagination, Select, Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import PokemonList from '../../features/pokemonList';
 import { TPokemon } from '../../shared/types/formatedPokemon';
-import { RawPokemonData } from '../../shared/types/rawPokemonData';
+import { TRawPokemonData } from '../../shared/types/rawPokemonData';
 import './PokemonListPage.scss';
 import {
   filterPokemonsByName,
@@ -35,7 +35,7 @@ const PokemonListPage = () => {
 
   const [queryGetPokemons, { data, loading, error }] =
     useLazyQuery(GET_POKEMONS);
-  const [pokemonList, setPokemonList] = useState<RawPokemonData[]>([]);
+  const [pokemonList, setPokemonList] = useState<TRawPokemonData[]>([]);
   const [pokemonListFormPage, setPokemonListForPage] = useState<TPokemon[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
   const [pageNumber, setPageNumber] = useState<number>(1);

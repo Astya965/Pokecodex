@@ -11,7 +11,7 @@ export type TPokemonFullInfo = {
   types: string[];
   stats: Map<string, number>;
   evolution: TEvolutionForm[];
-  abilabilities: TAbility[];
+  abilities: TAbility[];
   additionalInfo: {
     height: number;
     weight: number;

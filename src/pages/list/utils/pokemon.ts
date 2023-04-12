@@ -1,9 +1,9 @@
 import { TPokemon } from '../../../shared/types/formatedPokemon';
-import { RawPokemonData } from '../../../shared/types/rawPokemonData';
+import { TRawPokemonData } from '../../../shared/types/rawPokemonData';
 import { formatName } from '../../../shared/utils/format';
 
 export const getPokemonsInfo = (
-  pokemons: RawPokemonData[] = [],
+  pokemons: TRawPokemonData[] = [],
 ): TPokemon[] => {
   return pokemons.map((pokemon) => {
     return {
@@ -19,7 +19,7 @@ export const getPokemonsInfo = (
 };
 
 export const filterPokemonsByName = (
-  pokemons: RawPokemonData[] = [],
+  pokemons: TRawPokemonData[] = [],
   value?: string,
 ) => {
   return pokemons.filter(
@@ -28,7 +28,7 @@ export const filterPokemonsByName = (
 };
 
 export const filterPokemonsByTags = (
-  pokemons: RawPokemonData[] = [],
+  pokemons: TRawPokemonData[] = [],
   tags: string[] = [],
 ) => {
   return pokemons.filter(
