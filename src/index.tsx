@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import App from './app';
@@ -15,9 +15,9 @@ if (root) {
   createRoot(root).render(
     <React.StrictMode>
       <ApolloProvider client={client}>
-        <BrowserRouter>
+        <HashRouter>
           <App />
-        </BrowserRouter>
+        </HashRouter>
       </ApolloProvider>
     </React.StrictMode>,
   );
