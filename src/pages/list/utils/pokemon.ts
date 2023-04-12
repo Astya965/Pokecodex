@@ -23,8 +23,8 @@ export const filterPokemonsByName = (
 );
 
 export const filterPokemonsByTags = (
-  pokemons: TRawPokemonData[] = [],
   tags: string[] = [],
+  pokemons: TRawPokemonData[] = [],
 ) => pokemons.filter(
   (pokemon) => tags.length === 0
     || pokemon.types?.some((type) => tags.includes(type.type?.name)),
