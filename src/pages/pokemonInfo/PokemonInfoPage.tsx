@@ -4,6 +4,8 @@ import { gql, useLazyQuery } from '@apollo/client';
 
 import PokemonInfo from 'src/features/pokemonInfo';
 import { TPokemonFullInfo } from 'src/shared/types/formatedPokemon';
+import LoadingPage from 'src/shared/ui/organisms/LoadingPage';
+import ErrorPage from 'src/shared/ui/organisms/ErrorPage';
 
 import { formatPokemonData } from './utils/pokemon';
 
@@ -74,9 +76,23 @@ const PokemonInfoPage = () => {
 
   useEffect(() => {
     if (data?.pokemons?.length > 0 && data.pokemons[0]) {
+      console.log(data);
       setPokemon(formatPokemonData(data.pokemons[0]));
     }
   }, [data]);
+
+  if (loading) {
+    return <LoadingPage />;
+  }
+
+  if (error) {
+    return (
+      <ErrorPage
+        text="There`s a problem loading pokemon info"
+        onReload={() => queryGetPokemon()}
+      />
+    );
+  }
 
   return (
     pokemon && (
