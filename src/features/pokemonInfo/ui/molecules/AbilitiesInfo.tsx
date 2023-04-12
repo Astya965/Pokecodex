@@ -13,23 +13,23 @@ const AbilitiesInfo = ({ abilities }: TAbilitiesInfoPops) => {
   const { Title, Text } = Typography;
 
   return (
-    <>
-      {abilities && abilities.length > 0 && (
-        <div className="abilitiesInfo">
-          <Title level={3}>Abilities: </Title>
-          <div className="abilitiesGroup">
-            {abilities.map(({ name, text }) => (
-              <div key={name} className="abilityItem">
-                <Title className="abilityName" level={5}>
-                  {name}
-                </Title>
-                <Text type="secondary">{text}</Text>
-              </div>
-            ))}
-          </div>
+    abilities
+    && abilities.length > 0
+    && (
+      <div className="abilitiesInfo">
+        <Title level={3}>Abilities: </Title>
+        <div className="abilitiesGroup">
+          {abilities.map(({ name, text }) => (
+            <div key={name} className="abilityItem">
+              <Title className="abilityName" level={5}>
+                {name}
+              </Title>
+              <Text type="secondary">{text}</Text>
+            </div>
+          ))}
         </div>
-      )}
-    </>
+      </div>
+    )
   );
 };
 

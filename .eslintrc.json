@@ -9,8 +9,20 @@
     "airbnb/hooks",
     "plugin:import/typescript"
   ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {} // this loads <rootdir>/tsconfig.json to eslint
+    }
+  },
   "parser": "@typescript-eslint/parser",
-  "overrides": [],
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.js"],
+      "env": {
+        "jest": true
+      }
+    }
+  ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
@@ -41,6 +53,9 @@
     "react/jsx-wrap-multilines": [
       2,
       { "arrow": true, "return": true, "declaration": true }
-    ]
+    ],
+    "no-param-reassign": [2, { "props": false }],
+    "react/require-default-props": [2, { "ignoreFunctionalComponents": true }],
+  "no-confusing-arrow": [2, { "allowParens": true }]
   }
 }

@@ -37,8 +37,7 @@ const PokemonListPage = () => {
     }
   `;
 
-  const [queryGetPokemons, { data, loading, error }] =
-    useLazyQuery(GET_POKEMONS);
+  const [queryGetPokemons, { data, loading, error }] = useLazyQuery(GET_POKEMONS);
   const [pokemonList, setPokemonList] = useState<TRawPokemonData[]>([]);
   const [pokemonListFormPage, setPokemonListForPage] = useState<TPokemon[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
@@ -46,20 +45,18 @@ const PokemonListPage = () => {
 
   useEffect(() => {
     queryGetPokemons();
-  }, []);
+  }, [queryGetPokemons]);
 
   useEffect(() => {
     setPokemonList(data?.pokemons);
   }, [data]);
 
   useEffect(() => {
-    if (data && data.pokemons) {
-      setPokemonListForPage(
-        getPokemonsInfo(
-          pokemonList.slice((pageNumber - 1) * pageSize, pageNumber * pageSize),
-        ),
-      );
-    }
+    setPokemonListForPage(
+      getPokemonsInfo(
+        pokemonList.slice((pageNumber - 1) * pageSize, pageNumber * pageSize),
+      ),
+    );
   }, [pokemonList, pageSize, pageNumber]);
 
   if (loading) {
@@ -83,7 +80,7 @@ const PokemonListPage = () => {
           placeholder="Filter by name"
           onChange={(evt) => {
             setPokemonList(
-              filterPokemonsByName(data?.pokemons, evt?.target?.value),
+              filterPokemonsByName(evt?.target?.value, data?.pokemons),
             );
             setPageNumber(1);
           }}

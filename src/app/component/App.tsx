@@ -1,8 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
-import { Route, Routes } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 
 import PokemonListPage from 'src/pages/list/PokemonListPage';
 import NotFoundPage from 'src/pages/notfound/NotFoundPage';

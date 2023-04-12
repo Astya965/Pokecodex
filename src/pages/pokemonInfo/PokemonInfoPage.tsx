@@ -7,7 +7,7 @@ import { TPokemonFullInfo } from 'src/shared/types/formatedPokemon';
 import LoadingPage from 'src/shared/ui/organisms/LoadingPage';
 import ErrorPage from 'src/shared/ui/organisms/ErrorPage';
 
-import { formatPokemonData } from './utils/pokemon';
+import formatPokemonData from './utils/pokemon';
 
 const PokemonInfoPage = () => {
   const { id } = useParams();
@@ -66,17 +66,15 @@ const PokemonInfoPage = () => {
     }
   `;
 
-  const [queryGetPokemon, { data, loading, error }] =
-    useLazyQuery(GET_POKEMON_BY_ID);
+  const [queryGetPokemon, { data, loading, error }] = useLazyQuery(GET_POKEMON_BY_ID);
   const [pokemon, setPokemon] = useState<TPokemonFullInfo | null>(null);
 
   useEffect(() => {
     queryGetPokemon();
-  }, []);
+  }, [queryGetPokemon]);
 
   useEffect(() => {
     if (data?.pokemons?.length > 0 && data.pokemons[0]) {
-      console.log(data);
       setPokemon(formatPokemonData(data.pokemons[0]));
     }
   }, [data]);
@@ -95,11 +93,7 @@ const PokemonInfoPage = () => {
   }
 
   return (
-    pokemon && (
-      <>
-        <PokemonInfo pokemon={pokemon} />
-      </>
-    )
+    pokemon && <PokemonInfo pokemon={pokemon} />
   );
 };
 

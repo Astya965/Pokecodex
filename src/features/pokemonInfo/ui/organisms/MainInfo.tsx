@@ -14,7 +14,9 @@ type TMainInfoProps = {
   stats: Map<string, number>;
 };
 
-const MainInfo = ({ id, name, types, stats }: TMainInfoProps) => (
+const MainInfo = ({
+  id, name, types, stats,
+}: TMainInfoProps) => (
   <>
     <PokemonImage id={id} name={name} className="pokemonImageWrapper" />
     <Title className="pokemonName" level={2}>
@@ -31,8 +33,8 @@ const MainInfo = ({ id, name, types, stats }: TMainInfoProps) => (
       <div className="statsInfo">
         <Title level={3}>Stats: </Title>
         <div className="statsGroup">
-          {Array.from(stats.entries()).map(([name, value]) => (
-            <StatInfo key={name} name={name} value={value} />
+          {Array.from(stats.entries()).map(([statName, value]) => (
+            <StatInfo key={statName} name={statName} value={value} />
           ))}
         </div>
       </div>

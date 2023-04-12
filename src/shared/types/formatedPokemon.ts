@@ -5,16 +5,6 @@ export type TPokemon = {
   stats: Map<string, number>;
 };
 
-export type TPokemonFullInfo = {
-  id: number;
-  name: string;
-  types: string[];
-  stats: Map<string, number>;
-  evolution: TEvolutionForm[];
-  abilities: TAbility[];
-  additionalInfo: TAdditionalInfo;
-};
-
 export type TEvolutionForm = {
   name: string;
   id: number;
@@ -36,4 +26,14 @@ export type TAdditionalInfo = {
   isBaby: boolean;
   isLegendary: boolean;
   isMythical: boolean;
+};
+
+export type TPokemonFullInfo = {
+  id: number;
+  name: string;
+  types: string[];
+  stats: Map<string, number>;
+  evolution: TEvolutionForm[];
+  abilities: TAbility[];
+  additionalInfo: TAdditionalInfo;
 };

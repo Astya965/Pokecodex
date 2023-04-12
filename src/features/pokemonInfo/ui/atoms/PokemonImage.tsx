@@ -7,7 +7,7 @@ type TPokemonImage = {
   className?: string;
 };
 
-const PokemonImage = ({ name, id, className }: TPokemonImage) => (
+const PokemonImage = ({ name, id, className = ' ' }: TPokemonImage) => (
   <img
     className={`pokemonImg ${className}`}
     height={320}

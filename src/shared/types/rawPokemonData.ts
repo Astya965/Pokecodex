@@ -1,19 +1,5 @@
-export type TRawPokemonData = {
-  id: number;
-  name: string;
-  types: TRawPokemonType[];
-  stats: TRawPokemonStat[];
-};
-
-export type TRawPokemonFullData = {
-  id: number;
-  name: string;
-  types:TRawPokemonType[];
-  stats: TRawPokemonStat[];
-  weight: number;
-  height: number;
-  abilities: TRawAbility[];
-  specy: TRawSpecy;
+type TAbilityText = {
+  effect: string;
 };
 
 type TRawAbility = {
@@ -23,9 +9,10 @@ type TRawAbility = {
   };
 };
 
-type TAbilityText = {
-  effect: string;
-}
+type TRawEvolutionForm = {
+  name: string;
+  id: number;
+};
 
 type TRawSpecy = {
   base_happiness: number;
@@ -47,11 +34,6 @@ type TRawSpecy = {
   };
 };
 
-type TRawEvolutionForm = {
-  name: string;
-  id: number;
-};
-
 type TRawPokemonType = {
   type: {
     name: string;
@@ -63,4 +45,22 @@ type TRawPokemonStat = {
   statName: {
     name: string;
   };
+};
+
+export type TRawPokemonData = {
+  id: number;
+  name: string;
+  types: TRawPokemonType[];
+  stats: TRawPokemonStat[];
+};
+
+export type TRawPokemonFullData = {
+  id: number;
+  name: string;
+  types: TRawPokemonType[];
+  stats: TRawPokemonStat[];
+  weight: number;
+  height: number;
+  abilities: TRawAbility[];
+  specy: TRawSpecy;
 };

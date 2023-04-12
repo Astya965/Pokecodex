@@ -11,16 +11,14 @@ type TStatInfoProps = {
 const StatInfo = ({ name, value }: TStatInfoProps) => {
   const { Text } = Typography;
 
-  const getBooleanValue = (bool: boolean) => {
-    return bool ? 'Yes' : 'No';
-  };
+  const getBooleanValue = (bool: boolean) => (bool ? 'Yes' : 'No');
 
   return (
     <div className="statInfo">
       <Text className="name" type="secondary">
         {`${name}:`}
       </Text>
-      <Text>{typeof value == 'boolean' ? getBooleanValue(value) : value}</Text>
+      <Text>{typeof value === 'boolean' ? getBooleanValue(value) : value}</Text>
     </div>
   );
 };

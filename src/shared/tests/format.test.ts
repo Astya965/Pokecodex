@@ -1,4 +1,4 @@
-import { formatName } from '../utils/format';
+import formatName from '../utils/format';
 
 const name1 = 'ann';
 const name2 = 'ann-maxwell';

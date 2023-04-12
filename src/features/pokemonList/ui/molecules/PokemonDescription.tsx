@@ -1,5 +1,4 @@
 import React from 'react';
-import { Tag } from 'antd';
 
 import { TPokemon } from 'src/shared/types/formatedPokemon';
 import StatInfo from 'src/shared/ui/atoms/StatInfo';

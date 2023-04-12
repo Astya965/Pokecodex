@@ -14,8 +14,15 @@ type TPokemonInfoPros = {
 };
 
 const PokemonInfo = ({ pokemon }: TPokemonInfoPros) => {
-  const { id, name, types, stats, evolution, abilities, additionalInfo } =
-    pokemon;
+  const {
+    id,
+    name,
+    types,
+    stats,
+    evolution,
+    abilities,
+    additionalInfo,
+  } = pokemon;
 
   return (
     <>
