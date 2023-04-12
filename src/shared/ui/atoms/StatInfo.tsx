@@ -1,5 +1,6 @@
-import Typography from 'antd/es/typography';
 import React from 'react';
+import Typography from 'antd/es/typography';
+
 import './StatInfo.scss';
 
 type TStatInfoProps = {
@@ -19,7 +20,7 @@ const StatInfo = ({ name, value }: TStatInfoProps) => {
       <Text className="name" type="secondary">
         {`${name}:`}
       </Text>
-      <Text>{typeof value == "boolean" ? getBooleanValue(value) : value}</Text>
+      <Text>{typeof value == 'boolean' ? getBooleanValue(value) : value}</Text>
     </div>
   );
 };

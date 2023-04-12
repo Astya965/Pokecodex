@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from 'antd';
-import { TPokemon } from '../../../../shared/types/formatedPokemon';
+
+import { TPokemon } from 'src/shared/types/formatedPokemon';
+
 import PokemonDescription from '../molecules/PokemonDescription';
 import './PokemonCard.scss';
-import { Link } from 'react-router-dom';
 
 type TPokemonCardProps = {
   pokemon: TPokemon;
@@ -23,7 +25,7 @@ const PokemonCard = ({ pokemon }: TPokemonCardProps) => {
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
             onError={({ currentTarget }) => {
               currentTarget.onerror = null;
-              currentTarget.src="https://placehold.co/320x320";
+              currentTarget.src = 'https://placehold.co/320x320';
             }}
           />
         }

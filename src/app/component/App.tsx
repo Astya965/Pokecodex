@@ -1,20 +1,25 @@
-import React, { useEffect } from 'react';
-import { Breadcrumb, Layout } from 'antd';
+import React from 'react';
+import { Layout } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
+import { Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import PokemonListPage from 'src/pages/list/PokemonListPage';
+import NotFoundPage from 'src/pages/notfound/NotFoundPage';
+import PokemonInfoPage from 'src/pages/pokemonInfo/PokemonInfoPage';
+
 import Logo from '../ui/atoms/Logo';
-import '../styles/reset.scss';
-import './App.scss';
 import Info from '../ui/atoms/Info';
 import Inner from '../ui/molecules/Inner';
-import { Route, Routes, useParams } from 'react-router-dom';
-import PokemonListPage from '../../pages/list/PokemonListPage';
-import NotFoundPage from '../../pages/notfound/NotFoundPage';
-import PokemonInfoPage from '../../pages/pokemonInfo/PokemonInfoPage';
+import '../styles/reset.scss';
+import './App.scss';
 
 const App = () => (
   <Layout className="app">
     <Header className="header">
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
     </Header>
     <Content className="content">
       <Info>It`s simple application with the list of pokemons.</Info>

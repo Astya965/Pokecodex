@@ -1,7 +1,9 @@
-import { Tag } from 'antd';
 import React from 'react';
-import { TPokemon } from '../../../../shared/types/formatedPokemon';
-import StatInfo from '../../../../shared/ui/atoms/StatInfo';
+import { Tag } from 'antd';
+
+import { TPokemon } from 'src/shared/types/formatedPokemon';
+import StatInfo from 'src/shared/ui/atoms/StatInfo';
+
 import './PokemonDescription.scss';
 
 type TPokemonDescriptionProps = {
@@ -22,7 +24,9 @@ const PokemonDescription = ({ pokemon }: TPokemonDescriptionProps) => {
       {types && (
         <div>
           {types.map((type) => (
-            <Tag key={type} className="tag">{type}</Tag>
+            <Tag key={type} className="tag">
+              {type}
+            </Tag>
           ))}
         </div>
       )}

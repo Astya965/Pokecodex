@@ -2,12 +2,12 @@ import React from 'react';
 import './PokemonImage.scss';
 
 type TPokemonImage = {
-    name: string;
-    id: number;
-    className?: string;
-}
+  name: string;
+  id: number;
+  className?: string;
+};
 
-const PokemonImage = ({name, id, className}: TPokemonImage) => (
+const PokemonImage = ({ name, id, className }: TPokemonImage) => (
   <img
     className={`pokemonImg ${className}`}
     height={320}

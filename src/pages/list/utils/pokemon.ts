@@ -1,6 +1,6 @@
-import { TPokemon } from '../../../shared/types/formatedPokemon';
-import { TRawPokemonData } from '../../../shared/types/rawPokemonData';
-import { formatName } from '../../../shared/utils/format';
+import { TPokemon } from 'src/shared/types/formatedPokemon';
+import { TRawPokemonData } from 'src/shared/types/rawPokemonData';
+import { formatName } from 'src/shared/utils/format';
 
 export const getPokemonsInfo = (
   pokemons: TRawPokemonData[] = [],

@@ -1,6 +1,6 @@
-import { TPokemonFullInfo } from '../../../shared/types/formatedPokemon';
-import { TRawPokemonFullData } from '../../../shared/types/rawPokemonData';
-import { formatName } from '../../../shared/utils/format';
+import { TPokemonFullInfo } from 'src/shared/types/formatedPokemon';
+import { TRawPokemonFullData } from 'src/shared/types/rawPokemonData';
+import { formatName } from 'src/shared/utils/format';
 
 export const formatPokemonData = (
   pokemon: TRawPokemonFullData,

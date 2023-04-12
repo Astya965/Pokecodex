@@ -1,8 +1,10 @@
-import { gql, useLazyQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import PokemonInfo from '../../features/pokemonInfo';
-import { TPokemonFullInfo } from '../../shared/types/formatedPokemon';
+import { gql, useLazyQuery } from '@apollo/client';
+
+import PokemonInfo from 'src/features/pokemonInfo';
+import { TPokemonFullInfo } from 'src/shared/types/formatedPokemon';
+
 import { formatPokemonData } from './utils/pokemon';
 
 const PokemonInfoPage = () => {

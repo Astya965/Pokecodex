@@ -1,16 +1,18 @@
+import React, { useEffect, useState } from 'react';
+import { Button, Input, Pagination, Select, Spin } from 'antd';
 import { ReloadOutlined } from '@ant-design/icons';
 import { gql, useLazyQuery } from '@apollo/client';
-import { Button, Input, Pagination, Select, Spin } from 'antd';
-import React, { useEffect, useState } from 'react';
-import PokemonList from '../../features/pokemonList';
-import { TPokemon } from '../../shared/types/formatedPokemon';
-import { TRawPokemonData } from '../../shared/types/rawPokemonData';
-import './PokemonListPage.scss';
+
+import PokemonList from 'src/features/pokemonList';
+import { TPokemon } from 'src/shared/types/formatedPokemon';
+import { TRawPokemonData } from 'src/shared/types/rawPokemonData';
+
 import {
   filterPokemonsByName,
   getPokemonsInfo,
   filterPokemonsByTags,
 } from './utils/pokemon';
+import './PokemonListPage.scss';
 
 const PokemonListPage = () => {
   const GET_POKEMONS = gql`

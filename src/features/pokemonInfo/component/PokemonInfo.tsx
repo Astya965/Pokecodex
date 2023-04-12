@@ -1,9 +1,11 @@
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
-import { Tag, Typography } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TPokemonFullInfo } from '../../../shared/types/formatedPokemon';
-import StatInfo from '../../../shared/ui/atoms/StatInfo';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import { Tag, Typography } from 'antd';
+
+import { TPokemonFullInfo } from 'src/shared/types/formatedPokemon';
+import StatInfo from 'src/shared/ui/atoms/StatInfo';
+
 import PokemonImage from '../ui/atoms/PokemonImage';
 import './PokemonInfo.scss';
 

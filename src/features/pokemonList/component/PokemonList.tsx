@@ -1,5 +1,7 @@
 import React from 'react';
-import { TPokemon } from '../../../shared/types/formatedPokemon';
+
+import { TPokemon } from 'src/shared/types/formatedPokemon';
+
 import PokemonCard from '../ui/organisms/PokemonCard';
 import './PokemonList.scss';
 

@@ -11,8 +11,6 @@ module.exports = {
   devServer: {
     port: 3020,
     open: false,
-    hot: false,
-    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -41,5 +39,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    resolve: {
+      alias: {
+        src: path.resolve(__dirname, "src")
+      }
+    }
   },
 };
