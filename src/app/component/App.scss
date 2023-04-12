@@ -1,4 +1,4 @@
-@use "../styles/varables.scss";
+@use '../styles/varables.scss';
 
 .header {
   height: fit-content;
@@ -10,8 +10,4 @@
 .content {
   height: 100vh;
   padding: 0 50px;
-}
-
-.breadcrumb {
-  margin-bottom: 15px;
 }
