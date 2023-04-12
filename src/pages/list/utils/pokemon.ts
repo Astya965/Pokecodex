@@ -1,9 +1,5 @@
 import { TPokemon } from '../../../features/pokemonList/types';
 
-export type RawPokemonsList = {
-  pokemons: RawPokemonData[];
-};
-
 export type RawPokemonData = {
   id: number;
   name: string;

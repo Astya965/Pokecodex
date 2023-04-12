@@ -8,17 +8,9 @@ import './PokemonListPage.scss';
 import {
   filterPokemonsByName,
   getPokemonsInfo,
-  RawPokemonsList,
   RawPokemonData,
   filterPokemonsByTags,
 } from './utils/pokemon';
-
-type TQuaryResponse = {
-  data?: RawPokemonsList | null;
-  loading: boolean;
-  error?: any;
-  refetch?: any;
-};
 
 const PokemonListPage = () => {
   const GET_POKEMONS = gql`
