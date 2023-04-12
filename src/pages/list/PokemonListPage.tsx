@@ -6,6 +6,7 @@ import { gql, useLazyQuery } from '@apollo/client';
 import PokemonList from 'src/features/pokemonList';
 import { TPokemon } from 'src/shared/types/formatedPokemon';
 import { TRawPokemonData } from 'src/shared/types/rawPokemonData';
+import { TYPES } from 'src/shared/constants/pokemonType';
 
 import {
   filterPokemonsByName,
@@ -41,27 +42,6 @@ const PokemonListPage = () => {
   const [pokemonListFormPage, setPokemonListForPage] = useState<TPokemon[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
   const [pageNumber, setPageNumber] = useState<number>(1);
-
-  const TYPES = [
-    { value: 'grass', label: 'grass' },
-    { value: 'poison', label: 'poison' },
-    { value: 'fire', label: 'fire' },
-    { value: 'flying', label: 'flying' },
-    { value: 'water', label: 'water' },
-    { value: 'bug', label: 'bug' },
-    { value: 'normal', label: 'normal' },
-    { value: 'electric', label: 'electric' },
-    { value: 'ground', label: 'ground' },
-    { value: 'fairy', label: 'fairy' },
-    { value: 'fighting', label: 'fighting' },
-    { value: 'psychic', label: 'psychic' },
-    { value: 'rock', label: 'rock' },
-    { value: 'steel', label: 'steel' },
-    { value: 'ice', label: 'ice' },
-    { value: 'ghost', label: 'ghost' },
-    { value: 'dragon', label: 'dragon' },
-    { value: 'dark', label: 'dark' },
-  ];
 
   useEffect(() => {
     queryGetPokemons();

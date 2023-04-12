@@ -3,6 +3,7 @@ import { Tag } from 'antd';
 
 import { TPokemon } from 'src/shared/types/formatedPokemon';
 import StatInfo from 'src/shared/ui/atoms/StatInfo';
+import TypeTag from 'src/shared/ui/atoms/TypeTag';
 
 import './PokemonDescription.scss';
 
@@ -24,9 +25,7 @@ const PokemonDescription = ({ pokemon }: TPokemonDescriptionProps) => {
       {types && (
         <div>
           {types.map((type) => (
-            <Tag key={type} className="tag">
-              {type}
-            </Tag>
+            <TypeTag type={type} key={type} className="tag" />
           ))}
         </div>
       )}
