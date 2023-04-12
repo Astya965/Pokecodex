@@ -7,11 +7,12 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'index.bundle.js',
+    clean: true,
   },
   devServer: {
     port: 3020,
     open: false,
-    hot: false
+    hot: false,
   },
   plugins: [
     new HtmlWebpackPlugin({
