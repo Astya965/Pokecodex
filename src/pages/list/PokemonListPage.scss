@@ -8,6 +8,7 @@
 .filters {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
@@ -15,9 +16,12 @@
   min-width: 120px;
   max-width: 280px;
   margin-right: 35px;
+  margin-bottom: 20px;
 }
 
 .tagFilter {
   max-width: fit-content;
   min-width: 280px;
+  margin-right: 35px;
+  margin-bottom: 20px;
 }
