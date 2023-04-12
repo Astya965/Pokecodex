@@ -1,6 +1,8 @@
-.info {
-    padding: 35px;
+@use 'src/shared/styles/varables.scss';
 
-    text-align: center;
-    font-size: 24px;
+.info {
+  padding: 35px;
+
+  text-align: center;
+  font-size: (--font-size-big);
 }

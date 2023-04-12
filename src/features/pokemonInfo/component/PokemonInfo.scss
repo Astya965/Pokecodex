@@ -1,13 +1,15 @@
+@use 'src/shared/styles/varables.scss';
+
 .goBackArrow {
   margin-right: 10px;
 }
 
 .pokemonImageWrapper {
-    margin-right: 35px;
+  margin-right: 35px;
 }
 
 .typesInfo {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .statsInfo,
@@ -27,7 +29,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  font-size: 18px;
+  font-size: var(--font-size-normal);
 }
 
 .evolutionForm {
@@ -52,7 +54,7 @@
   max-width: 400px;
   margin-right: 15px;
 
-  font-size: 18px;
+  font-size: var(--font-size-normal);
 
   &:last-child {
     margin-right: 0;
@@ -60,5 +62,5 @@
 }
 
 .additionalInfoGroup {
-    max-width: 600px;
+  max-width: 600px;
 }

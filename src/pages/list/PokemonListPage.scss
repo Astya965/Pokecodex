@@ -1,38 +1,38 @@
 .infoWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
 }
 
 .reloadInfo {
-    font-size: 18px;
-    padding: 25px;
+  font-size: 18px;
+  padding: 25px;
 }
 
 .reloadButton {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 35px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 20px;
 }
 
 .filters {
-    display: flex;
-    margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .nameFilter {
-    max-width: 280px;
-    margin-right: 35px;
+  max-width: 280px;
+  margin-right: 35px;
 }
 
 .tagFilter {
-    max-width: fit-content;
-    min-width: 280px;
+  max-width: fit-content;
+  min-width: 280px;
 }

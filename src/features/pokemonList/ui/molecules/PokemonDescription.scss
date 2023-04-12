@@ -1,10 +1,12 @@
+@use 'src/shared/styles/varables.scss';
+
 .stats {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 
 .tag {
-    font-size: 14px;
+  font-size: var(--font-size-smal);
 }
