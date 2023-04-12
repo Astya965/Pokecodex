@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Input, Pagination, Select, Spin } from 'antd';
-import { ReloadOutlined } from '@ant-design/icons';
+import { Input, Pagination, Select } from 'antd';
 import { gql, useLazyQuery } from '@apollo/client';
 
 import PokemonList from 'src/features/pokemonList';
 import { TPokemon } from 'src/shared/types/formatedPokemon';
 import { TRawPokemonData } from 'src/shared/types/rawPokemonData';
 import { TYPES } from 'src/shared/constants/pokemonType';
+import LoadingPage from 'src/shared/ui/organisms/LoadingPage';
+import ErrorPage from 'src/shared/ui/organisms/ErrorPage';
 
 import {
   filterPokemonsByName,
@@ -62,27 +63,15 @@ const PokemonListPage = () => {
   }, [pokemonList, pageSize, pageNumber]);
 
   if (loading) {
-    return (
-      <div className="infoWrapper">
-        <Spin className="spinner" tip="Loading" size="large" />
-      </div>
-    );
+    return <LoadingPage />;
   }
 
   if (error) {
     return (
-      <div className="infoWrapper">
-        <h3 className="errorInfo">There's a problem loading pokemon list</h3>
-        <Button
-          onClick={() => {
-            queryGetPokemons();
-          }}
-          className="reloadButton"
-          icon={<ReloadOutlined />}
-        >
-          Reload list
-        </Button>
-      </div>
+      <ErrorPage
+        text="There`s a problem loading pokemon list"
+        onReload={() => queryGetPokemons()}
+      />
     );
   }
 
